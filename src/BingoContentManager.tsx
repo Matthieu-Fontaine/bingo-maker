@@ -11,7 +11,7 @@ const BingoContentManager: React.FC = () => {
   const [newItem, setNewItem] = useState('');
 
   const fetchItems = async () => {
-    const response = await fetch(API_URL + '/api/bingo-content');
+    const response = await fetch(API_URL + 'api/bingo-content');
     const data = await response.json();
     setItems(data);
   };
@@ -21,7 +21,7 @@ const BingoContentManager: React.FC = () => {
   }, []);
 
   const addItem = async () => {
-    const response = await fetch(API_URL + '/api/bingo-content', {
+    const response = await fetch(API_URL + 'api/bingo-content', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -34,7 +34,7 @@ const BingoContentManager: React.FC = () => {
   };
 
   const updateItem = async (id: number, newItem: string) => {
-    await fetch(API_URL + `/api/bingo-content/${id}`, {
+    await fetch(API_URL + `api/bingo-content/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -45,7 +45,7 @@ const BingoContentManager: React.FC = () => {
   };
 
   const deleteItem = async (id: number) => {
-    await fetch(API_URL + `/api/bingo-content/${id}`, {
+    await fetch(API_URL + `api/bingo-content/${id}`, {
       method: 'DELETE',
     });
     fetchItems();

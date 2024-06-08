@@ -14,7 +14,7 @@ const App: React.FC = () => {
 
   useEffect(() => {
     const fetchBingoContent = async () => {
-      const response = await fetch(API_URL + '/api/bingo-content');
+      const response = await fetch(API_URL + 'api/bingo-content');
       const data = await response.json();
       setBingoGrid(data);
     };
@@ -24,7 +24,7 @@ const App: React.FC = () => {
 
   const handleNameSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const response = await fetch(API_URL + '/api/user', {
+    const response = await fetch(API_URL + 'api/user', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -47,7 +47,7 @@ const App: React.FC = () => {
     setBingoGrid(newGrid);
 
     // Mettre à jour la grille dans la base de données
-    await fetch(API_URL + `/api/user/${name}/bingo`, {
+    await fetch(API_URL + `api/user/${name}/bingo`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',

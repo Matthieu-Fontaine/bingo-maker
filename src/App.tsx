@@ -13,6 +13,10 @@ const App: React.FC = () => {
   const [showManager, setShowManager] = useState(false);
 
   useEffect(() => {
+    document.title = "Bingo Les Ardentes";
+  }, []);
+
+  useEffect(() => {
     const fetchBingoContent = async () => {
       const response = await fetch(API_URL + 'api/bingo-content');
       const data = await response.json();
